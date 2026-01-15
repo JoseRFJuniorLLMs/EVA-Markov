@@ -6,7 +6,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	"eva-markov/internal/analyzer"
 	"eva-markov/internal/config"
@@ -87,8 +86,6 @@ func main() {
 	<-sigChan
 
 	log.Println("🛑 Encerrando EVA-Markov...")
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
 	c.Stop()
 	log.Println("👋 Até logo!")
 }
